@@ -3,7 +3,8 @@
   "description": "webapp structure with gulp and angular",
   "main": "index.js",
   "authors": [
-    "Felipe Lopes | Thiago F. Lins"
+    "Felipe Lopes <felipe.webdev@gmail.com>",
+    "Thiago Ferreira <thiago.evandson@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [

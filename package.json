@@ -17,7 +17,8 @@
   "author": "Felipe Lopes | Thiago F. Lins",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Felipelopes90/webapp-angular/issues"
+    "url": "https://github.com/Felipelopes90/webapp-angular/issues",
+    "email" : "felipe.webdev@gmail.com"
   },
   "homepage": "https://github.com/Felipelopes90/webapp-angular#readme",
   "devDependencies": {
