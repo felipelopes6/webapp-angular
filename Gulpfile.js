@@ -1,5 +1,3 @@
-var gulp = require('gulp');
-
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -21,18 +19,18 @@ gulp.task('default', ['express', 'watch', 'livereload', 'styles'], function() {
 
 // Sass Task
 gulp.task('styles', function() {
-  return sass('sass', { style: 'expanded' })
-    .pipe(gulp.dest('css'))
+  return sass('scss', { style: 'expanded' })
+    .pipe(gulp.dest('app/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('app/css'));
 });
 
 // Gulp Watch Task
 gulp.task('watch', function() {
-  gulp.watch('sass/*.scss', ['styles']);
+  gulp.watch('scss/*.scss', ['styles']);
   gulp.watch('*.html', notifyLiveReload);
-  gulp.watch('css/*.css', notifyLiveReload);
+  gulp.watch('./app/css/*.css', notifyLiveReload);
 });
 
 // Live Reload Task
