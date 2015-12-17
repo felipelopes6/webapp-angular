@@ -13,5 +13,8 @@
   "homepage": "https://github.com/Felipelopes90/webapp-angular",
   "moduleType": [
     "node"
-  ]
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15"
+  }
 }
