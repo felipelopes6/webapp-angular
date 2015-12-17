@@ -1,0 +1,17 @@
+{
+  "name": "webapp-angular",
+  "description": "webapp structure with gulp and angular",
+  "main": "index.js",
+  "authors": [
+    "Felipe Lopes | Thiago F. Lins"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "webapp",
+    "gulp"
+  ],
+  "homepage": "https://github.com/Felipelopes90/webapp-angular",
+  "moduleType": [
+    "node"
+  ]
+}
