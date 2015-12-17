@@ -15,7 +15,7 @@ gulp.task('express', function() {
   app.listen(4000, '0.0.0.0');
 });
 
-gulp.task('default', ['express', 'watch', 'livereload'], function() {
+gulp.task('default', ['express', 'watch', 'livereload', 'styles'], function() {
 
 });
 
@@ -31,6 +31,8 @@ gulp.task('styles', function() {
 // Gulp Watch Task
 gulp.task('watch', function() {
   gulp.watch('sass/*.scss', ['styles']);
+  gulp.watch('*.html', notifyLiveReload);
+  gulp.watch('css/*.css', notifyLiveReload);
 });
 
 // Live Reload Task
