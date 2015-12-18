@@ -19,7 +19,7 @@ gulp.task('default', ['express', 'watch', 'livereload', 'styles'], function() {
 
 // Sass Task
 gulp.task('styles', function() {
-  return sass('scss', { style: 'expanded' })
+  return sass('app/scss', { style: 'expanded' })
     .pipe(gulp.dest('app/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
@@ -28,8 +28,9 @@ gulp.task('styles', function() {
 
 // Gulp Watch Task
 gulp.task('watch', function() {
-  gulp.watch('scss/*.scss', ['styles']);
-  gulp.watch('app/*.html', notifyLiveReload);
+  gulp.watch('app/scss/*.scss', ['styles']);
+  gulp.watch('./app/*.html', notifyLiveReload);
+  gulp.watch('./app/templates/*/*.html', notifyLiveReload);
   gulp.watch('./app/css/*.css', notifyLiveReload);
   gulp.watch('app/js/*/*.js', notifyLiveReload);
   gulp.watch('app/js/*.js', notifyLiveReload);

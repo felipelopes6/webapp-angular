@@ -1,5 +1,5 @@
 {
-  "name": "webapp-angular",
+  "name": "generator-webapp-angular",
   "version": "1.0.0",
   "description": "webapp structure with gulp and angular",
   "main": "index.js",
@@ -11,6 +11,8 @@
     "url": "git+https://github.com/Felipelopes90/webapp-angular.git"
   },
   "keywords": [
+    "yeoman-generator",
+    "angularJS",
     "webapp",
     "gulp"
   ],
@@ -18,7 +20,7 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Felipelopes90/webapp-angular/issues",
-    "email" : "felipe.webdev@gmail.com"
+    "email": "felipe.webdev@gmail.com"
   },
   "homepage": "https://github.com/Felipelopes90/webapp-angular#readme",
   "devDependencies": {
@@ -44,6 +46,7 @@
     "win-spawn": "^2.0.0"
   },
   "dependencies": {
-    "gulp-open": "^1.0.0"
+    "gulp-open": "^1.0.0",
+    "yeoman-generator": "^0.20.3"
   }
 }
