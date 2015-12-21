@@ -9,4 +9,6 @@ function Page1Controller($scope) {
   var vm = this;
 
   vm.helloWorld = "Hello World from Page1!";
+
+  console.log("Hello Dear! It's the page1 :D")
 }

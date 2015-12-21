@@ -10,5 +10,5 @@ function InitialController($scope) {
 
   vm.helloWorld = "Hello World from HOMEPAGE!";
 
-  console.log("Entodsdsu: :D")
+  console.log("Hello Dear! It's the Homepage :D")
 }

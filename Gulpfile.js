@@ -2,18 +2,27 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    browserSync = require('browser-sync').create();
 
 
-gulp.task('express', function() {
-  var express = require('express');
-  var app = express();
-  app.use(require('connect-livereload')({port: 35729}));
-  app.use(express.static(__dirname + '/app/'));
-  app.listen(4000, '0.0.0.0');
+// Static Server + watching scss/html files
+gulp.task('serve', ['styles'], function() {
+
+    browserSync.init({
+        server: "./app"
+    });
+
+    // Watch files
+    gulp.watch("./app/scss/*.scss", ['styles']);
+    gulp.watch("./app/*.html").on('change', browserSync.reload);
+    gulp.watch("./app/templates/*/*.html").on('change', browserSync.reload);
+    gulp.watch("./app/css/*.css").on('change', browserSync.reload);
+    gulp.watch("app/js/*/*.js").on('change', browserSync.reload);
+    gulp.watch("app/js/*.js").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['express', 'watch', 'livereload', 'styles'], function() {
+gulp.task('default', ['watch', 'livereload', 'styles', 'serve'], function() {
 
 });
 
@@ -23,32 +32,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('app/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('app/css'));
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.stream());
+
 });
-
-// Gulp Watch Task
-gulp.task('watch', function() {
-  gulp.watch('app/scss/*.scss', ['styles']);
-  gulp.watch('./app/*.html', notifyLiveReload);
-  gulp.watch('./app/templates/*/*.html', notifyLiveReload);
-  gulp.watch('./app/css/*.css', notifyLiveReload);
-  gulp.watch('app/js/*/*.js', notifyLiveReload);
-  gulp.watch('app/js/*.js', notifyLiveReload);
-});
-
-// Live Reload Task
-var tinylr;
-gulp.task('livereload', function() {
-  tinylr = require('tiny-lr')();
-  tinylr.listen(35729);
-});
-
-function notifyLiveReload(event) {
-  var fileName = require('path').relative(__dirname, event.path);
-
-  tinylr.changed({
-    body: {
-      files: [fileName]
-    }
-  });
-}

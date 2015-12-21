@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Felipelopes90/webapp-angular#readme",
   "devDependencies": {
+    "browser-sync": "^2.10.1",
     "connect-livereload": "^0.5.4",
     "convert-source-map": "^1.1.2",
     "dargs": "^4.0.1",
